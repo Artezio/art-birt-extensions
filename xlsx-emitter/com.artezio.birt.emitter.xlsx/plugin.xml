@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         id="com.artezio.birt.emitters"
+         point="org.eclipse.birt.report.engine.emitters">
+      <emitter
+            class="com.artezio.birt.emitters.XlsxEmitter"
+            format="xlsx_comments"
+            id="com.artezio.birt.emitters.XlsxEmitter"
+            mimeType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+            pagination="no-pagination">
+      </emitter>
+   </extension>
+
+</plugin>

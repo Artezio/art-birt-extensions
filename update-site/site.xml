@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/birt-xlsx-emitter-feature_1.0.0.jar" id="birt-xlsx-emitter-feature" version="1.0.0">
+      <category name="birt.extensions"/>
+   </feature>
+   <feature url="features/birt-union-dataset-feature_1.0.0.jar" id="birt-union-dataset-feature" version="1.0.0">
+      <category name="birt.extensions"/>
+   </feature>
+   <category-def name="birt.extensions" label="Artezio BIRT Extensions"/>
+</site>

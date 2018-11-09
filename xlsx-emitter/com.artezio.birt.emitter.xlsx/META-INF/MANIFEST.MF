@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-ClassPath: .,
+ lib/org.apache.poi.ooxml_3.9.0.v201405241905.jar,
+ lib/org.apache.xmlbeans_2.3.0.v201605172150.jar,
+ lib/org.apache.poi.ooxml.schemas_3.9.0.v201405241750.jar,
+ lib/org.dom4j_1.6.1.v20170815-1500.jar
+Bundle-SymbolicName: com.artezio.birt.emitter.xlsx;singleton:=true
+Bundle-ManifestVersion: 2
+Bundle-Name: BIRT Excel Emitter
+Bundle-Version: 1.0.0
+Bundle-Activator: com.artezio.birt.emitters.Activator
+Created-By: Apache Maven 3.3.9
+Build-Jdk: 1.8.0_121
+Export-Package: com.artezio.birt.emitters
+Require-Bundle: org.apache.poi;bundle-version="3.9.0",
+ org.eclipse.birt.core;bundle-version="4.7.0",
+ org.eclipse.birt.report.engine;bundle-version="4.7.0",
+ uk.co.spudsoft.birt.emitters.excel;bundle-version="4.7.0"
+Bundle-Vendor: Artezio

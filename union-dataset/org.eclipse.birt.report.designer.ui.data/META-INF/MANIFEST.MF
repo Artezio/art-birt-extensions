@@ -1,0 +1,33 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: BIRT Designer Data Plug-in
+Bundle-SymbolicName: org.eclipse.birt.report.designer.ui.data;singleton:=true
+Bundle-Version: 4.8.1
+Bundle-ClassPath: .,
+ lib/org.eclipse.birt.report.designer.ui.data_4.8.0.v201806261756.jar
+Export-Package: org.eclipse.birt.report.designer.data.ui.actions,
+  org.eclipse.birt.report.designer.data.ui.dataset,
+  org.eclipse.birt.report.designer.data.ui.datasource,
+  org.eclipse.birt.report.designer.data.ui.providers,
+  org.eclipse.birt.report.designer.data.ui.util
+Require-Bundle: org.eclipse.ui,
+  org.eclipse.ui.forms,
+  org.eclipse.birt.core,
+  org.eclipse.birt.data,
+  org.eclipse.birt.report.model,
+  org.eclipse.birt.report.designer.core,
+  org.eclipse.birt.report.designer.ui,
+  org.eclipse.birt.report.designer.ui.views,
+  org.eclipse.datatools.connectivity.oda.design,
+  org.eclipse.datatools.connectivity.oda.design.ui,
+  org.eclipse.birt.report.data.adapter,
+  org.eclipse.birt.report.model.adapter.oda,
+  org.eclipse.birt.report.engine
+Build-Jdk: 1.8.0_162
+Bundle-ActivationPolicy: lazy
+Eclipse-ExtensibleAPI: true
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Eclipse-SourceReferences: scm:git:https://github.com/eclipse/birt.git;path="UI/org.eclipse.birt.report.designer.ui.data";commitId=758df0fb8d048cce195a711cb2f51569c35f3c88
+Created-By: Apache Maven 3.3.3
+Built-By: genie.birt
+Archiver-Version: Plexus Archiver
