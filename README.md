@@ -17,13 +17,13 @@ The features can be used in BIRT report designer and an application with integra
 &nbsp;&nbsp;[1.4 How to Create a Union Dataset](#14-how-to-create-a-union-dataset)
 
   
-[2. Getting Started with a BIRT Runtime Application](@2-getting-started-with-a-birt-runtime-application)
+[2. Getting Started with a BIRT Runtime Application](#2-getting-started-with-a-birt-runtime-application)
 
-&nbsp;&nbsp;[2.1 Requirements](21-requirements)  
+&nbsp;&nbsp;[2.1 Requirements](#21-requirements)
 
-&nbsp;&nbsp;[2.2 How to Get Project Artifacts](22-how-to-get-project-artifacts)  
+&nbsp;&nbsp;[2.2 How to Get Project Artifacts](#22-how-to-get-project-artifacts)
 
-&nbsp;&nbsp;[2.3 How to Configure Xlsx Emitter Options](23-how-to-configure-xlsx-emitter-options)
+&nbsp;&nbsp;[2.3 How to Configure Xlsx Emitter Options](#23-how-to-configure-xlsx-emitter-options)
   
 
 ## 1. Getting Started with a Report Designer
