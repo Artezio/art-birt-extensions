@@ -16,7 +16,7 @@ The features can be used in BIRT report designer and an application with integra
 
 &nbsp;&nbsp;[1.4 How to Create a Union Dataset](#14-how-to-create-a-union-dataset)
 
-  
+
 [2. Getting Started with a BIRT Runtime Application](#2-getting-started-with-a-birt-runtime-application)
 
 &nbsp;&nbsp;[2.1 Requirements](#21-requirements)
@@ -24,6 +24,19 @@ The features can be used in BIRT report designer and an application with integra
 &nbsp;&nbsp;[2.2 How to Get Project Artifacts](#22-how-to-get-project-artifacts)
 
 &nbsp;&nbsp;[2.3 How to Configure Xlsx Emitter Options](#23-how-to-configure-xlsx-emitter-options)
+
+
+[3. How To Include A Custom Eclipse Plugin Into The Repository](#3-how-to-include-a-custom-eclipse-plugin-into-the-repository)
+
+&nbsp;&nbsp;[3.1 Eclipse Plugin Development](#31-eclipse-plugin-development)
+
+&nbsp;&nbsp;[3.2 Preparing Eclipse Plugin to Package with Tycho](#32-preparing-eclipse-plugin-to-package-with-tycho)
+
+&nbsp;&nbsp;[3.3 Eclipse Plugin Feature Development](#33-eclipse-plugin-feature-development)
+
+&nbsp;&nbsp;[3.4 Adding Information About Your Eclipse Plugin To The Repository](#34-adding-information-about-your-eclipse-plugin-to-the-repository)
+
+&nbsp;&nbsp;[3.5 Packaging And Installing](#35-packaging-and-installing)
   
 
 ## 1. Getting Started with a Report Designer
@@ -107,3 +120,97 @@ renderOption.setEmitterID("com.artezio.birt.emitters.XlsxEmitter");
 renderOption.setOutputFormat("xlsx_comments");	
 ```
 
+## 3. How To Include A Custom Eclipse Plugin Into The Repository
+### 3.1 Eclipse Plugin Development
+If you need information about eclipse plugin development see [Plugin development](https://www.ibm.com/developerworks/library/os-eclipse-plugindev1/index.html).
+
+### 3.2 Preparing Eclipse Plugin to Package with Tycho
+1. In *%art-birt-extensions-home%* create a directory that will include your eclipse plugin and eclipse plugin feature.
+2. Add your eclipse plugin project to the directory.
+3. Add *pom.xml* to eclipse plugin directory with the following information:
+
+```
+<parent>
+    <groupId>com.github.Artezio.art-birt-extensions</groupId>
+    <artifactId>birt-extensions</artifactId>
+    <version>...</version>
+    <relativePath>../../</relativePath>
+</parent>
+
+```
+
+```
+<packaging>eclipse-plugin</packaging>
+```
+
+```
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.eclipse.tycho</groupId>
+            <artifactId>tycho-maven-plugin</artifactId>
+        </plugin>
+        <plugin>
+            <groupId>org.eclipse.tycho</groupId>
+            <artifactId>target-platform-configuration</artifactId>
+        </plugin>
+    </plugins>
+</build>
+```
+Pay attention information about version is omitted, you've to add actual parent version. Other info such as: artifactId, version etc. have to be provided by you.
+
+### 3.3 Eclipse Plugin Feature Development
+1. Open Eclipse.
+2. *File -> New -> Other -> Plug-in Development -> Feature Project*.
+3. On opened window specify necessary information.
+4. Click *Next*.
+4. Select your plugin(s).
+5. Click *Finish*.
+5. Copy created files (build.properties, feature.xml) into the directory created above.
+6. Add *pom.xml* to feature project with the following information:
+```
+<parent>
+    <groupId>com.github.Artezio.art-birt-extensions</groupId>
+    <artifactId>birt-extensions</artifactId>
+    <version>...</version>
+    <relativePath>../../</relativePath>
+</parent>
+```
+
+```
+<packaging>eclipse-feature</packaging>
+```
+
+```
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.eclipse.tycho</groupId>
+            <artifactId>tycho-maven-plugin</artifactId>
+        </plugin>
+        <plugin>
+            <groupId>org.eclipse.tycho</groupId>
+            <artifactId>target-platform-configuration</artifactId>
+        </plugin>
+    </plugins>
+</build
+```
+Pay attention information about version is omitted, you've to add actual parent version. Other info such as: artifactId, version etc. have to be provided by you.
+
+### 3.4 Adding Information About Your Eclipse Plugin to The Repository
+1. Open Eclipse.
+2. *File -> Open Projects from File System -> %art-birt-extensions-home%/update-site*.
+3. Double click on *site.xml* -> *Site Map* tab.
+4. Add Feature.
+5. Open *%art-birt-extensions-home%/pom.xml*.
+6. Add to *modules* section the following:
+```
+<module>%art-birt-extensions-home%/your-created-directory/your-eclipse-plugin</module>   
+<module>%art-birt-extensions-home%/your-created-directory/your-eclipse-plugin-feature</module>
+```
+
+### 3.5 Packaging And Installing
+1. Go to %art-birt-extensions-home%.
+2. `mvn clean install`.
+3. Commit and push committed changes to remote repository.
+4. Now your plugin is available using *JitPack* repository. For more information about fetching from the repository see [How to Get Project Artifacts](#22-how-to-get-project-artifacts).
