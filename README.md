@@ -166,7 +166,7 @@ Pay attention information about version is omitted, you've to add actual parent 
 4. Click *Next*.
 4. Select your plugin(s).
 5. Click *Finish*.
-5. Copy created files (build.properties, feature.xml) into the directory created above.
+5. Add developed eclipse plugin feature into the directory created above.
 6. Add *pom.xml* to feature project with the following information:
 ```
 <parent>
